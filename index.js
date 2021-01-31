@@ -1,7 +1,7 @@
 const express = require('express'); //инициализация express
 const route = require('./routes/route'); //роутинг
 const expHbs = require('express-handlebars'); //шаблонизатор
-const router = require('./routes/authRouter'); //login router
+const authRoute = require('./routes/authRoute'); //login router
 const mongoose = require('mongoose');
 const path = require('path');
 
@@ -13,7 +13,7 @@ const app = express(); //express initializate
 //подключение шаблонизатора
 const hbs = expHbs.create({
     defaultLayout: 'main',
-    extname: 'hbs'
+    extname: 'hbs',
 })
 
 app.engine('hbs', hbs.engine);
@@ -25,7 +25,7 @@ app.set('views', 'views');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
-app.use('/admin', router); //авторизация
+app.use('/', authRoute); //авторизация
 
 
 //ипользуем роут
