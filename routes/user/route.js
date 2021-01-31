@@ -9,12 +9,12 @@ route.get('/', (req, res) => {
 })
 ///страница авторизации в админ панель
 route.get('/admin', (req, res) => {
-    res.render('view/auth',  ({layout: 'auth'}));
+    res.render('view/admin/auth',  ({layout: 'auth'}));
 })
 
 ///панель администратора
 route.get('/admin/panel', (req, res) => {
-    res.render('view/panel', ({layout: 'adminPanel'}))
+    res.render('view/admin/adminPanel', ({layout: 'adminPanel'}))
 })
 
 module.exports = route;
