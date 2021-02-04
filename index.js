@@ -3,8 +3,11 @@ const expHbs = require('express-handlebars'); //шаблонизатор
 const mongoose = require('mongoose');
 const keys = require('./config/keys');
 const path = require('path');
-const bodyParser = require('body-parser');
 const passport = require('passport');
+const cookieParser = require('cookie-parser');
+const Session = require('express-session');
+const FileStore = require('session-file-store')(Session); 
+const auth = require('./midlleware/auth');
 
 const Routes = require('./routes/route'); //роутинг
 const authRoutes = require('./routes/auth'); //роутер логина
@@ -33,15 +36,30 @@ app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');
 app.set('views', 'views');
 
-app.use(passport.initialize())
-require('./midlleware/passport')(passport);
 
 app.use(require('morgan')('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, '/public')));
 app.use(require('cors')());
+
+//passport auth
+app.use(Session({
+    secret: 'q4w5qew4',
+    store: new FileStore(),
+    cookie: {
+        path: '/',
+        httpOnly: false,
+        maxAge: 60 * 60 * 1000
+    },
+    resave: false,
+    saveUninitialized: false
+}));
+app.use(cookieParser());
+require('./midlleware/passport');
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 
 //backend

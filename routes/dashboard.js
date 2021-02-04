@@ -1,11 +1,11 @@
 const { Router } = require('express');
 const Dashboard = require('../controller/dashboard');
-const passport = require('passport');
+const auth = require('../midlleware/auth');
 
 const dashboard = new Router();
 
 
 //панель администратора
-dashboard.get('/', Dashboard.dashboard);
+dashboard.get('/', auth.authCheck, Dashboard.dashboard);
 
 module.exports = dashboard;
