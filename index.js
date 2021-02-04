@@ -1,7 +1,10 @@
 const express = require('express'); //инициализация express
 const expHbs = require('express-handlebars'); //шаблонизатор
 const mongoose = require('mongoose');
+const keys = require('./config/keys');
 const path = require('path');
+const bodyParser = require('body-parser');
+const passport = require('passport');
 
 const Routes = require('./routes/route'); //роутинг
 const authRoutes = require('./routes/auth'); //роутер логина
@@ -21,47 +24,45 @@ const hbs = expHbs.create({
     extname: 'hbs',
 })
 
-//midlevar
+mongoose.connect(keys.mongoURI)
+    .then( () => console.log('MongoDB connected.'))
+    .catch( error => console.log(error))
+
+
 app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');
 app.set('views', 'views');
 
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(passport.initialize())
+require('./midlleware/passport')(passport);
+
+app.use(require('morgan')('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(require('cors')());
 
 
 //backend
 app.use('/', authRoutes); //авторизация админа
 app.use('/dashboard', dashboardRoutes); //роутинг панели администратора
-
 app.use('/category', categoryRoutes);
 app.use('/product', productRoutes);
 app.use('/attribute', attributeRoutes); 
 app.use('/option', optionRoutes);
-
 app.use('/order', orderRoutes);
-
 
 
 //frontend
 app.use(Routes);
 
 
+function start() {
 
-async function start() {
-    try {
-        await mongoose.connect('mongodb+srv://express-pizza:1q2w3e4r5t@cluster0.liqmm.mongodb.net/express-pizza', {
-            useNewUrlParser: true,
-            useFindAndModify: false
-        })
-
-        app.listen(PORT, () => {
-            console.log('Server has ben Started')
-        })
-    } catch(e) {
-        console.log(e);
-    }
+    app.listen(PORT, () => {
+        console.log('Server has ben Started')
+    })
 }
 
 start();
