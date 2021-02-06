@@ -9,71 +9,141 @@
 <body>
     <div class="admin-panel">
         <div class="admin-panel__sitebar">
-            <div class="admin-panel__title">Express-pizza</div>
-            <div class="admin-panel_item">
-                <hr>
-                <div class="admin-panel__item-title"><p>Статистика</p></div>
-                <div class="admin-panel_item">
-                    <a href="/dashboard">
-                        <span><i class="fas fa-align-center"></i>Статистика</span>
-                        <i class="fas fa-arrow-alt-circle-right"></i>
-                    </a>
+            <div class="admin-panel__sitebar-title">exCart</div>
+            <div class="admin-panel__item-title">
+                <a class="item-title" href="/dashboard"><i class="fas fa-chart-pie"></i>Панель</a>
+            </div>
+            <div class="admin-panel__item">
+                <div class="admin-panel__item-title">
+                    <span class="item-title"><i class="fas fa-server"></i>Каталог</span>
+                    <span class="admin-panel__dropdown-icon"><i class="fas fa-chevron-down"></i></span>
                 </div>
-                <div class="admin-panel__item-title"><p>Каталог</p></div>
-                <div class="admin-panel_item">
-                    <a href="/category">
-                        <span><i class="fas fa-align-center"></i>Категории</span>
-                        <i class="fas fa-arrow-alt-circle-right"></i>
-                    </a>
+                <div class="admin-panel__dropdown">
+                    <div class="dropdown-item">
+                        <a href="/dashboard">Категории</a>
+                    </div>
+                    <div class="dropdown-item">
+                        <a href="/dashboard">Товар</a>
+                    </div>
+                    <div class="dropdown-item">
+                        <a href="/dashboard">Характеристики</a>
+                    </div>
+                    <div class="dropdown-item">
+                        <a href="/dashboard">Опции</a>
+                    </div>
                 </div>
-                <div class="admin-panel_item">
-                    <a href="/product">
-                        <span><i class="fas fa-hamburger"></i></i>Товары</span>
-                        <i class="fas fa-arrow-alt-circle-right"></i>
-                    </a>
+            </div>
+            <div class="admin-panel__item">
+                <div class="admin-panel__item-title">
+                    <span class="item-title"><i class="fas fa-desktop"></i>Дизайн</span>
+                    <span class="admin-panel__dropdown-icon"><i class="fas fa-chevron-down"></i></span>
                 </div>
-                <div class="admin-panel_item">
-                    <a href="/attribute">
-                        <span><i class="fas fa-sliders-h"></i>Атрибуты</span>
-                        <i class="fas fa-arrow-alt-circle-right"></i>
-                    </a>
+                <div class="admin-panel__dropdown">
+                    <div class="dropdown-item">
+                        <a href="/dashboard">Шапка</a>
+                    </div>
+                    <div class="dropdown-item">
+                        <a href="/dashboard">Меню</a>
+                    </div>
+                    <div class="dropdown-item">
+                        <a href="/dashboard">Контент</a>
+                    </div>
+                    <div class="dropdown-item">
+                        <a href="/dashboard">Футер</a>
+                    </div>
                 </div>
-                <div class="admin-panel_item">
-                    <a href="/option">
-                        <span><i class="fas fa-cog"></i>Опции</span>
-                        <i class="fas fa-arrow-alt-circle-right"></i>
-                    </a>
+            </div>
+            <div class="admin-panel__item">
+                <div class="admin-panel__item-title">
+                    <span class="item-title"><i class="fas fa-shopping-cart"></i>Продажи</span>
+                    <span class="admin-panel__dropdown-icon"><i class="fas fa-chevron-down"></i></span>
                 </div>
-                <div class="admin-panel__item-title"><p>Продажи</p></div>
-                <div class="admin-panel_item">
-                    <a href="/order">
-                        <span><i class="fas fa-archive"></i>Заказы</span>
-                        <i class="fas fa-arrow-alt-circle-right"></i>
-                    </a>
+                <div class="admin-panel__dropdown">
+                    <div class="dropdown-item">
+                        <a href="/dashboard">Заказы</a>
+                    </div>
+                    <div class="dropdown-item">
+                        <a href="/dashboard">Отчет</a>
+                    </div>
                 </div>
-                <div class="admin-panel__item-title"><p>Дизайн</p></div>
-                <div class="admin-panel_item">
-                    <a href="#">
-                        <span><i class="fas fa-archive"></i>Item</span>
-                        <i class="fas fa-arrow-alt-circle-right"></i>
-                    </a>
+            </div>
+            <div class="admin-panel__item">
+                <div class="admin-panel__item-title">
+                    <span class="item-title"><i class="fas fa-poll-h"></i>Маркетинг</span>
+                    <span class="admin-panel__dropdown-icon"><i class="fas fa-chevron-down"></i></span>
                 </div>
-                <div class="admin-panel_item">
-                    <a href="#">
-                        <span><i class="fas fa-archive"></i>Item</span>
-                        <i class="fas fa-arrow-alt-circle-right"></i>
-                    </a>
+                <div class="admin-panel__dropdown">
+                    <div class="dropdown-item">
+                        <a href="/dashboard">Google</a>
+                    </div>
+                    <div class="dropdown-item">
+                        <a href="/dashboard">Facebook</a>
+                    </div>
+                    <div class="dropdown-item">
+                        <a href="/dashboard">Instagram</a>
+                    </div>
                 </div>
-                <div class="admin-panel_item">
-                    <a href="#">
-                        <span><i class="fas fa-archive"></i>Item</span>
-                        <i class="fas fa-arrow-alt-circle-right"></i>
-                    </a>
+            </div>
+            <div class="admin-panel__item">
+                <div class="admin-panel__item-title">
+                    <span class="item-title"><i class="fas fa-cog"></i>Система</span>
+                    <span class="admin-panel__dropdown-icon"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="admin-panel__dropdown">
+                    <div class="dropdown-item">
+                        <a href="/dashboard">Настройки</a>
+                    </div>
+                    <div class="dropdown-item">
+                        <a href="/dashboard">Магазин</a>
+                    </div>
+                    <div class="dropdown-item">
+                        <a href="/dashboard">Валюта</a>
+                    </div>
+                </div>
+            </div>
+            <div class="admin-panel__item">
+                <div class="admin-panel__item-title">
+                    <span class="item-title"><i class="fas fa-map"></i>Карты</span>
+                    <span class="admin-panel__dropdown-icon"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="admin-panel__dropdown">
+                    <div class="dropdown-item">
+                        <a href="/dashboard">Google maps</a>
+                    </div>
                 </div>
             </div>
         </div>
-        {{{ body }}}
+        <div class="admin-panel__content">
+            <div class="admin-panel__content-header">
+                <div class="panel__header-massage panel__header-margin">
+                    <div class="header-icon">
+                        <i class="fas fa-bell"></i>
+                        <span class="new-active"><i class="fas fa-circle"></i></span>
+                    </div>
+                    <div class="header-massage__wrapper"></div>
+                </div>
+                <div class="panel__header-callback panel__header-margin">
+                    <div class="header-icon">
+                        <i class="fas fa-sms"></i>
+                        <span class="new-active"><i class="fas fa-circle"></i></span>
+                    </div>
+                    <div class="header-callback__wrapper"></div>
+                </div>
+                <div class="panel__header-login panel__header-margin">
+                    <a class="header-icon" href="/" target="_blank"><i class="fas fa-store"></i></a>
+                </div>
+                <div class="panel__header-login panel__header-margin">
+                    <div class="header-icon"><i class="fas fa-user"></i></div>
+                    <div class="header-login__wrapper"></div>
+                </div>
+                <div class="panel__header-login panel__header-margin">
+                    <a class="header-icon" style="text-decoration: none;" href="/logout" target="_blank"><i class="fas fa-sign-out-alt"></i></a>
+                </div>
+            </div>
+            {{{ body }}}
+        </div>
     </div>
+    <script src="/admin/js/main.js"></script>
     <script src="https://kit.fontawesome.com/97e5db9e95.js" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -16,12 +16,17 @@ module.exports.auth = function(req, res, next) {
                     ? next(err)
                     : res.redirect('/dashboard');
             })
-            : res.redirect('/admin');
+            : res.redirect('/admin' + req.user.login);
     }
     )(req, res, next);
 };
 
 module.exports.logout = function(req, res) {
-    req.logout();
-    res.redirect('/');
+    req.logOut();
+    res.status(200).clearCookie('connect.sid', {
+        path: '/'
+    });
+    req.session.destroy(function (err) {
+        res.redirect('/');
+    });
 };
