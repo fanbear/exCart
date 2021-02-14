@@ -1,0 +1,117 @@
+
+<div class="add-wrapper-from">
+    <div class="add-wrapper__button-close btn"><i class="fas fa-times"></i></div>
+    <div class="form-allert"></div>
+    <div class="form-button__wrapper">
+        <div class="form-button__item form-button__item-active">Общие</div>
+        <div class="form-button__item">Данные</div>
+        <div class="form-button__item">Связи</div>
+        <div class="form-button__item">Атрибуты</div>
+        <div class="form-button__item">Опции</div>
+        <div class="form-button__item">Акции</div>
+        <div class="form-button__item">Подарки</div>
+        <div class="form-button__item">Изображения</div>
+    </div>
+    <form id="addProduct">
+                <div class="form-tabs form-tabs__active">
+                    <div class="group">      
+                        <input type="text" name="name" required>
+                        <span class="bar"></span>
+                        <label>Название товара</label>
+                    </div>
+                    <div class="group">      
+                        <input type="text" name="htmltag">
+                        <span class="bar"></span>
+                        <label>HTML - тег H1</label>
+                    </div>
+                    <div class="group">      
+                        <input type="text" name="metatitle">
+                        <span class="bar"></span>
+                        <label>Meta - тег Title</label>
+                    </div>
+                    <div class="group">      
+                        <input type="text" name="metadesc">
+                        <span class="bar"></span>
+                        <label>Meta - тег Description</label>
+                    </div> 
+                    <div class="group">
+                        <span class="textarea-desc">Описание товара</span>
+                        <textarea name="desc" cols="30" id="product-description" rows="10"></textarea>
+                    </div>  
+                </div>
+                <div class="form-tabs">
+                    <div class="group">      
+                        <input type="text" name="seourl">
+                        <span class="bar"></span>
+                        <label>SEO url</label>
+                    </div>
+                    <div class="group">      
+                        <input type="text" name="model" >
+                        <span class="bar"></span>
+                        <label>Модель</label>
+                    </div>
+                    <div class="group">      
+                        <input type="text" name="code">
+                        <span class="bar"></span>
+                        <label>Код товара</label>
+                    </div>
+                    <div class="group">      
+                        <input type="number" name="pricein">
+                        <span class="bar"></span>
+                        <label>Цена в валюте</label>
+                    </div>
+                    <div class="group">      
+                        <input type="number" name="price">
+                        <span class="bar"></span>
+                        <label>Цена</label>
+                    </div>
+                    <div class="group">      
+                        <input type="number" name="count">
+                        <span class="bar"></span>
+                        <label>Количество на складе</label>
+                    </div>
+                    <div class="group">      
+                        <select name="availability">
+                            <option value="in" selected >В наличии</option>
+                            <option value="out">Нет в наличии</option>
+                        </select>
+                        <label>Наличие</label>
+                    </div>
+                </div>
+                <div class="form-tabs">
+                    <div class="group">      
+                        <input type="text" name="manufacturer">
+                        <span class="bar"></span>
+                        <label>Производитель</label>
+                    </div>
+                    <div class="group">      
+                        <select name="availability">
+                            <option value="categoryId">Категория 1</option>
+                            <option value="categoryId">Категория > Категория 2</option>
+                        </select>
+                        <label>Главная категория</label>
+                    </div>
+                </div>
+                <div class="form-tabs">
+                    <div class="attribute-head">
+                        <div class="attribute-name">Характеристики</div>
+                        <div class="attribute-text">Текст</div>
+                        <div class="btn-attr__add btn"><i class="fas fa-plus" aria-hidden="true"></i></div>
+                    </div>
+                </div>
+                <div class="form-tabs">
+                    <span>Опции</span>
+                </div>
+                <div class="form-tabs">
+                    <span>Акции</span>
+                </div>
+                <div class="form-tabs">
+                    <span>Подарки</span>
+                </div>
+                <div class="form-tabs">
+                    <span>Изображения</span>
+                </div>
+                <button type="submit" class="btn btn-form-save"><i class="fas fa-save"></i></button>
+    </form>
+</div>
+<script src="/admin/js/product.js"></script>

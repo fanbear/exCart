@@ -1,0 +1,228 @@
+.add-wrapper-from {
+    margin: 40px;
+    border-top: 1px solid lightgray;
+    position: relative;
+    padding: 60px 40px;
+}
+.form-allert {
+    position: absolute;
+    z-index: 1040;
+    width: 400px;
+    height: 40px;
+    font-size: 18px;
+    right: 0;
+    top: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.add-wrapper__button-close {
+    position: absolute;
+    z-index: 1040;
+    height: 44px;
+    width: 44px;
+    right: 50px;
+    top: -21px;
+    background: #E14C42;
+}
+.btn-form-save {
+    position: absolute;
+    z-index: 1040;
+    height: 44px;
+    width: 44px;
+    right: 100px;
+    top: -20px;
+    background: #43b46a;
+}
+
+.form-button__wrapper {
+    position: absolute;
+    z-index: 1030;
+    display: flex;
+    justify-content: center;
+    top: -20px;
+    left: 50%;
+    right: 50%;
+}
+.form-button__item {
+    margin: 0 10px;
+    background: #3f474f;
+    color: #c1c4c9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    padding: 10px 0;
+    min-width: 100px;
+    width: auto;
+    cursor: pointer;
+    font-size: 14px;
+}
+.form-button__item:hover {
+    color: #fff;
+}
+.form-button__item-active {
+    background: #43b46a;
+    color: #fff;
+}
+.form-tabs {
+    background: white;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    z-index: 0;
+    opacity: 0;
+}
+.form-tabs__active {
+    z-index: 1010;
+    opacity: 1;
+}
+.form-group {
+    position: relative;
+    padding-top: 1.5rem;
+}
+.group {
+    position: relative;
+    margin-bottom: 30px;
+}
+.add-wrapper-from .textarea-desc {
+    font-size: 18px;
+    color: #999;
+    padding: 10px;
+    display: flex;
+    min-height: 100%;
+}
+.add-wrapper-from input {
+    font-size: 16px;
+    padding: 10px;
+    display: block;
+    width: 95%;
+    border: none;
+    border-bottom: 1px solid #ccc;
+}
+.add-wrapper-from .tox  {
+    width: 96%;
+}
+.add-wrapper-from input:focus {
+    outline: none;
+}
+/* LABEL ======================================= */
+.add-wrapper-from label {
+    color: #999;
+    font-size: 18px;
+    position: absolute;
+    pointer-events: none;
+    left: 0;
+    top: -18px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+/* BOTTOM BARS ================================= */
+.add-wrapper-from .bar {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+.add-wrapper-from .bar:before, .bar:after {
+    content: "";
+    height: 2px;
+    width: 0;
+    bottom: 0;
+    position: absolute;
+    background: #5264AE;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+.add-wrapper-from .bar:before {
+    left: 50%;
+}
+.add-wrapper-from .bar:after {
+    right: 50%;
+}
+.add-wrapper-from input:focus ~ .bar:before,
+.add-wrapper-from input:focus ~ .bar:after {
+    width: 50%;
+}
+.group input:disabled {
+    color: #5DC1AE;
+}
+.group select {
+    margin-top: 10px;
+    width: 96%;
+    font-size: 16px;
+    height: 40px;
+    padding-left: 5px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+    outline: 0;
+}
+
+
+/* Attribute tab =============================  */
+.attribute-head {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 40px;
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: white;
+    background: #44515E
+}
+.attribute-name {
+    min-width: 300px;
+    width: auto;
+    padding-left: 15px;
+    border-right: 1px solid #a8a8a8;
+}
+.attribute-text {
+    padding-left: 15px;
+}
+.attribute-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid lightgrey;
+    padding: 20px;
+    margin: 30px 0;
+}
+.attribute-item input {
+    width: 30%;
+}
+.attribute-item textarea{
+    width: 60%;
+    border: 1px solid #ccc;
+    padding: 20px;
+    outline: none;
+}
+.attribute-item textarea::placeholder {
+    font-size: 16px;
+}
+.attribute-item input::placeholder {
+    padding-left: 5px;
+    font-size: 16px;
+}
+.btn-attr__remove {
+    width: 40px;
+    height: 40px;
+    background: #E14C42;
+    color: white;
+    transition: .3s;
+}
+.btn-attr__remove:hover {
+    color: white;
+    background: #b7372e;
+    transition: .3s;
+}
+.btn-attr__add {
+    width: 40px;
+    height: 40px;
+    background: #F77A17;
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    top: 19px;
+}

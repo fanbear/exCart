@@ -1,13 +1,13 @@
 const express = require('express'); //инициализация express
 const expHbs = require('express-handlebars'); //шаблонизатор
 const mongoose = require('mongoose');
-const keys = require('./config/keys');
 const path = require('path');
 const passport = require('passport');
 const cookieParser = require('cookie-parser');
 const Session = require('express-session');
-const FileStore = require('session-file-store')(Session); 
-const auth = require('./midlleware/auth');
+const FileStore = require('session-file-store')(Session);
+
+const keys = require('./config/keys');
 
 const Routes = require('./routes/route'); //роутинг
 const authRoutes = require('./routes/auth'); //роутер логина
@@ -38,7 +38,13 @@ app.set('views', 'views');
 
 
 app.use(require('morgan')('dev'));
-app.use(express.json());
+app.use(express.json({
+    extended: true,
+    inflate: true,
+    parameterLimit: 1000,
+    type: 'application/json',
+    verify: undefined
+}));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '/public')));
 app.use(require('cors')());

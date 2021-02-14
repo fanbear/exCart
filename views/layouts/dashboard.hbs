@@ -1,10 +1,11 @@
+{{!-- Main page admin interface --}}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/admin/css/main.css">
-    <title>Express-pizza Admin Panel</title>
+    <title>exCart Admin Panel</title>
 </head>
 <body>
     <div class="admin-panel">
@@ -20,16 +21,20 @@
                 </div>
                 <div class="admin-panel__dropdown">
                     <div class="dropdown-item">
-                        <a href="/dashboard">Категории</a>
+                        <i class="fas fa-ellipsis-h"></i>
+                        <a href="/category?route=catalog/category">Категории</a>
                     </div>
                     <div class="dropdown-item">
-                        <a href="/dashboard">Товар</a>
+                        <i class="fas fa-ellipsis-h"></i>
+                        <a href="/product?route=catalog/product">Товар</a>
                     </div>
                     <div class="dropdown-item">
-                        <a href="/dashboard">Характеристики</a>
+                        <i class="fas fa-ellipsis-h"></i>
+                        <a href="/attribute?route=catalog/attribute">Характеристики</a>
                     </div>
                     <div class="dropdown-item">
-                        <a href="/dashboard">Опции</a>
+                        <i class="fas fa-ellipsis-h"></i>
+                        <a href="/option?route=catalog/option">Опции</a>
                     </div>
                 </div>
             </div>
@@ -40,16 +45,20 @@
                 </div>
                 <div class="admin-panel__dropdown">
                     <div class="dropdown-item">
-                        <a href="/dashboard">Шапка</a>
+                        <i class="fas fa-ellipsis-h"></i>
+                        <a href="/head?route=catalog/head">Шапка</a>
                     </div>
                     <div class="dropdown-item">
-                        <a href="/dashboard">Меню</a>
+                        <i class="fas fa-ellipsis-h"></i>
+                        <a href="/menu?route=catalog/menu">Меню</a>
                     </div>
                     <div class="dropdown-item">
-                        <a href="/dashboard">Контент</a>
+                        <i class="fas fa-ellipsis-h"></i>
+                        <a href="/content?route=catalog/content">Контент</a>
                     </div>
                     <div class="dropdown-item">
-                        <a href="/dashboard">Футер</a>
+                        <i class="fas fa-ellipsis-h"></i>
+                        <a href="/footer/?route=catalog/footer">Футер</a>
                     </div>
                 </div>
             </div>
@@ -60,10 +69,12 @@
                 </div>
                 <div class="admin-panel__dropdown">
                     <div class="dropdown-item">
-                        <a href="/dashboard">Заказы</a>
+                        <i class="fas fa-ellipsis-h"></i>
+                        <a href="/order?route=catalog/order">Заказы</a>
                     </div>
                     <div class="dropdown-item">
-                        <a href="/dashboard">Отчет</a>
+                        <i class="fas fa-ellipsis-h"></i>
+                        <a href="/analitic/?route=catalog/analitic">Отчет</a>
                     </div>
                 </div>
             </div>
@@ -74,13 +85,16 @@
                 </div>
                 <div class="admin-panel__dropdown">
                     <div class="dropdown-item">
-                        <a href="/dashboard">Google</a>
+                        <i class="fas fa-ellipsis-h"></i>
+                        <a href="/google?route=catalog/google">Google</a>
                     </div>
                     <div class="dropdown-item">
-                        <a href="/dashboard">Facebook</a>
+                        <i class="fas fa-ellipsis-h"></i>
+                        <a href="/facebook?route=catalog/facebook">Facebook</a>
                     </div>
                     <div class="dropdown-item">
-                        <a href="/dashboard">Instagram</a>
+                        <i class="fas fa-ellipsis-h"></i>
+                        <a href="/instagram?route=catalog/instagram">Instagram</a>
                     </div>
                 </div>
             </div>
@@ -91,13 +105,16 @@
                 </div>
                 <div class="admin-panel__dropdown">
                     <div class="dropdown-item">
-                        <a href="/dashboard">Настройки</a>
+                        <i class="fas fa-ellipsis-h"></i>
+                        <a href="/setting?route=catalog/setting">Настройки</a>
                     </div>
                     <div class="dropdown-item">
-                        <a href="/dashboard">Магазин</a>
+                        <i class="fas fa-ellipsis-h"></i>
+                        <a href="/shop?route=catalog/shop">Магазин</a>
                     </div>
                     <div class="dropdown-item">
-                        <a href="/dashboard">Валюта</a>
+                        <i class="fas fa-ellipsis-h"></i>
+                        <a href="/currency?route=catalog/currency">Валюта</a>
                     </div>
                 </div>
             </div>
@@ -108,7 +125,8 @@
                 </div>
                 <div class="admin-panel__dropdown">
                     <div class="dropdown-item">
-                        <a href="/dashboard">Google maps</a>
+                        <i class="fas fa-ellipsis-h"></i>
+                        <a href="/maps?route=catalog/maps">Google maps</a>
                     </div>
                 </div>
             </div>
@@ -117,33 +135,47 @@
             <div class="admin-panel__content-header">
                 <div class="panel__header-massage panel__header-margin">
                     <div class="header-icon">
-                        <i class="fas fa-bell"></i>
+                        <i class="fas fa-bell" style="color: #5DC1AE;"></i>
                         <span class="new-active"><i class="fas fa-circle"></i></span>
                     </div>
                     <div class="header-massage__wrapper"></div>
                 </div>
                 <div class="panel__header-callback panel__header-margin">
                     <div class="header-icon">
-                        <i class="fas fa-sms"></i>
+                        <i class="fas fa-sms" style="color: #F6CA01;"></i>
                         <span class="new-active"><i class="fas fa-circle"></i></span>
                     </div>
                     <div class="header-callback__wrapper"></div>
                 </div>
                 <div class="panel__header-login panel__header-margin">
-                    <a class="header-icon" href="/" target="_blank"><i class="fas fa-store"></i></a>
+                    <a class="header-icon" href="/" target="_blank"><i class="fas fa-store" style="color: #F77A17;"></i></a>
                 </div>
                 <div class="panel__header-login panel__header-margin">
-                    <div class="header-icon"><i class="fas fa-user"></i></div>
+                    <div class="header-icon"><i class="fas fa-user" style="color: #67A97E;"></i></div>
                     <div class="header-login__wrapper"></div>
                 </div>
                 <div class="panel__header-login panel__header-margin">
-                    <a class="header-icon" style="text-decoration: none;" href="/logout" target="_blank"><i class="fas fa-sign-out-alt"></i></a>
+                    <a class="header-icon" style="text-decoration: none; color: #E14C42;" href="/logout" target="_blank"><i class="fas fa-sign-out-alt"></i></a>
                 </div>
             </div>
-            {{{ body }}}
+            <div class="admin-panel__content-wrapper">
+                {{{ body }}}
+            </div>
         </div>
     </div>
+    <link rel="stylesheet" href="/admin/css/product.css">
     <script src="/admin/js/main.js"></script>
     <script src="https://kit.fontawesome.com/97e5db9e95.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.tiny.cloud/1/vazkbwydw7z4vfabztr5zpgpsm4xm1l0vqdctbm206x92ruq/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+        selector: '#product-description',
+        plugins: 'a11ychecker advcode casechange formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
+        toolbar: 'a11ycheck addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table',
+        toolbar_mode: 'floating',
+        tinycomments_mode: 'embedded',
+        tinycomments_author: 'Author name',
+    });
+    </script>
 </body>
 </html>

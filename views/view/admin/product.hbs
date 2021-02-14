@@ -1,1 +1,17 @@
-<div class="content">{{> adminContent }}</div>
+<div class="content-wrapper__header">
+    <div class="content-wrapper__broadcrumbs">
+        <span>Панель</span>
+        <span>/</span>
+        <span>Каталог</span>
+        <span>/</span>
+        <span>Товары</span>
+    </div>
+    <div class="content-wrapper__date">Вторник, 4 января, 2021</div>
+</div>
+<div class="content-product">
+    {{#each allProduct}}
+    <p>{{name}}</p>
+    {{/each}}
+    <a href="/product/add" class="product-add__btn btn" type="submit"><i class="fas fa-plus"></i></a>
+</div>
+
