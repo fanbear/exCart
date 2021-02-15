@@ -1,6 +1,6 @@
 
 <div class="add-wrapper-from">
-    <div class="add-wrapper__button-close btn"><i class="fas fa-times"></i></div>
+    <a href="/product" class="add-wrapper__button-close btn"><i class="fas fa-times"></i></a>
     <div class="form-allert"></div>
     <div class="form-button__wrapper">
         <div class="form-button__item form-button__item-active">Общие</div>
@@ -12,7 +12,7 @@
         <div class="form-button__item">Подарки</div>
         <div class="form-button__item">Изображения</div>
     </div>
-    <form id="addProduct">
+    <form id="add-product">
                 <div class="form-tabs form-tabs__active">
                     <div class="group">      
                         <input type="text" name="name" required>
@@ -109,9 +109,28 @@
                     <span>Подарки</span>
                 </div>
                 <div class="form-tabs">
-                    <span>Изображения</span>
+                    <div class="img-wrapper">
+                        <img src="../admin/img/product_no_image.jpg" alt="" class="product-image">
+                        <input type="text" name="img_src" class="hidden" value="">
+                        <div class="main-img__btn btn">+</div>
+                    </div>
                 </div>
                 <button type="submit" class="btn btn-form-save"><i class="fas fa-save"></i></button>
     </form>
+    <div class="add-image hidden">
+        <div class="image-colection">
+            {{#each file}}
+                <div class="image-colection__item">
+                    <img src="/uploads/{{this}}" width="80" height="80" alt="file">
+                    <div class="span">{{this}}</div>
+                </div>
+            {{/each}}
+        </div>
+        <div class="add-image__close btn"><i class="fas fa-times" aria-hidden="true"></i></div>
+        <form id="add-product__image">
+            <input type="file" name="image"/>
+            <button type="submit" class="btn btn-add__img">Добавить</button>
+        </form>
+    </div>
 </div>
 <script src="/admin/js/product.js"></script>

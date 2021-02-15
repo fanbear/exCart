@@ -4,6 +4,9 @@ body {
     padding: 0;
     min-height: 100%;
 }
+.hidden {
+    opacity: 0;
+}
 .admin-panel {
     display: flex;
     min-height: 100%;
@@ -116,7 +119,8 @@ body {
     overflow: auto;
 }
 .content-product {
-    position: relative; 
+    position: relative;
+    padding: 40px 0;
 }
 .admin-panel__content-header {
     display: flex;
@@ -157,6 +161,7 @@ body {
     display: flex;
     background: #fff;
     flex-direction: column;
+    overflow-x: hidden;
 }
 .content-wrapper__header {
     display: flex;
@@ -202,7 +207,7 @@ body {
 .product-add__btn {
     position: absolute;
     top: -30px;
-    right: 10%;
+    right: 15%;
     height: 54px;
     width: 54px;
     background: #F77A17;

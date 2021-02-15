@@ -3,18 +3,24 @@
     border-top: 1px solid lightgray;
     position: relative;
     padding: 60px 40px;
+    min-height: 100vh;
+    height: auto;
 }
 .form-allert {
     position: absolute;
     z-index: 1040;
-    width: 400px;
-    height: 40px;
+    width: auto;
+    padding: 15px;
     font-size: 18px;
-    right: 0;
+    right: -600px;
     top: 35px;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 20px;
+    box-shadow: 0 0 5px lightgray;
+    opacity: 0;
+    
 }
 .add-wrapper__button-close {
     position: absolute;
@@ -24,6 +30,7 @@
     right: 50px;
     top: -21px;
     background: #E14C42;
+    text-decoration: none;
 }
 .btn-form-save {
     position: absolute;
@@ -225,4 +232,79 @@
     left: 50%;
     right: 50%;
     top: 19px;
+}
+
+/* add Image -========================= */
+.add-wrapper-from .add-image {
+    position: absolute;
+    z-index: -1;
+    top: 60%;
+    left:50%;
+    transform:translate(-50%, -80%);
+    background: white;
+    box-shadow: 0 0 15px lightgray;
+    padding: 20px;
+    width: 100vh;
+    height: 75vh;
+    transition: .3s;
+}
+.add-wrapper-from .add-image input {
+    border: 0;
+    background: #43b46a;
+    color: white;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+.btn-add__img {
+    border-radius: 0;
+    background: #43b46a;
+    padding: 10px 15px;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+.img-wrapper {
+    position: relative;
+}
+.img-wrapper img {
+    width: auto;
+    height: 150px;
+    margin-bottom: 20px;
+}
+.main-img__btn {
+    position: absolute;
+    top: 50px;
+    left: 205px;
+    height: 40px;
+    width: 40px;
+    background: #F77A17;
+    text-decoration: none;
+    
+}
+.add-image__close {
+    position: absolute;
+    z-index: 1030;
+    height: 44px;
+    width: 44px;
+    right: -20px;
+    top: -20px;
+    background: #E14C42;
+}
+.image-colection {
+    width: 100%;
+    height: 85%;
+    display: flex;
+    overflow-y: scroll;
+}
+.image-colection__item {
+    margin: 5px 5px;
+}
+.image-colection__item img {
+    cursor: pointer;
+    transition: .3s;
+    border: 3px solid transparent;
+}
+.image-colection__item img:hover {
+    border: 3px solid #E14C42;
+    border-radius: 10px;
+    transition: .3s;
 }

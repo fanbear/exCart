@@ -1,10 +1,11 @@
+'use strict';
+
 document.addEventListener('DOMContentLoaded', () => {
     // product form =========================
-    const productForm = document.querySelector('#addProduct');
+    const productForm = document.querySelector('#add-product');
+    const productFormImage = document.querySelector('#add-product__image');
 
     // product cart =========================
-    const contentProductAdd = document.querySelector('.add-wrapper');
-    const contentProductClose = document.querySelector('.add-wrapper__button-close');
     const tabButtonWrapper = document.querySelector('.form-button__wrapper');
     const tabButton = document.querySelectorAll('.form-button__item');
     const tabPage = document.querySelectorAll('.form-tabs');
@@ -12,24 +13,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const price = document.querySelector('input[name="price"');
     const attrBtnAdd = document.querySelector('.btn-attr__add');
     const attrBtnDelete = document.querySelectorAll('.btn-attr__remove');
+    const addMainImg = document.querySelector('.main-img__btn');
+    const closeImgWrapper = document.querySelector('.add-image__close');
+    const imageCollection = document.querySelector('.image-colection');
 
 
     //product cart ==========================
 
-    //open cart-wrapper
-    const addProduct = () => {
-        contentProductAdd.style.animation = 'add 1s';
-        contentProductAdd.style.right = "80px";
-        contentProductAdd.style.opacity = '1';
-        contentProductAdd.style.height = 'auto';
-    }
-    //close cart-wrapper
-    const closeProduct = () => {
-        contentProductAdd.style.animation = 'add 1s';
-        contentProductAdd.style.right = "-2000px";
-        contentProductAdd.style.opacity = '0';
-        contentProductAdd.style.height = '0';
-    }
     //product tabs
     const productTab = (e) => {
 
@@ -48,9 +38,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     //add attribute colums
-    const attrGetCount = () => document.querySelectorAll('.attribute-item').length + 1;
-
     const attrAddTable = () => {
+
+        const attrGetCount = () => document.querySelectorAll('.attribute-item').length + 1;
 
         const attrHTML = `
             <div class="attribute-item">
@@ -67,17 +57,48 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     }
     
+    //open add img wrapper
+    const toggleAddImgWrapper = (e) => {
+    
+        const item = document.querySelector('.add-image');
 
+        if (item.classList.contains('hidden')) {
+            item.classList.remove('hidden');
+            item.style.zIndex = '1030';
+        } else {
+            item.classList.add('hidden');
+            item.style.zIndex = '-1';
+        }
+    }
+
+    //alert massage
+    const alertMassange = (selector, massage,  color, url) => {
+
+        const  item = document.querySelector(selector);
+
+        item.textContent = !url ? massage : massage + ' ' + url;
+        item.style.color = color;
+        item.style.right = '0';
+        item.style.opacity = '1';
+
+        setTimeout(() => {
+            item.style.right = '600px';
+        item.style.opacity = '0';
+        }, 5000)
+    }
+
+    //add img from image collection
+    const addImageCollection = (e) => {
+        const index = e.target.src.indexOf('/u');
+
+        document.querySelector('.img-wrapper img').src =  e.target.src.substr(index);
+        document.querySelector('.img-wrapper input[name="img_src"]').
+            setAttribute('value', e.target.src.substr(index));
+
+        toggleAddImgWrapper();
+    }
 
     //Action ========================================
-    if (addProductButton) {
-        addProductButton.addEventListener('click', addProduct);
-    }
-
-    if (contentProductClose) {
-        contentProductClose.addEventListener('click', closeProduct);
-    }
-
     if (tabButtonWrapper) {
         tabButtonWrapper.addEventListener('click', productTab);
     }
@@ -108,19 +129,85 @@ document.addEventListener('DOMContentLoaded', () => {
             item.addEventListener('click', attrDelete);
         })
     }
+    
+    //open add img wraper 
+    if(addMainImg) {
+        addMainImg.addEventListener('click', toggleAddImgWrapper);
+    }
+    //close add img wrapper
+    if (closeImgWrapper) {
+        closeImgWrapper.addEventListener('click', toggleAddImgWrapper);
+    }
+
+    //add image src from image collection
+    if (imageCollection) {
+        imageCollection.addEventListener('click', addImageCollection);
+    }
 
 
-    //fetch api add product in database =======
+    //Fetch ==============================
+    //Add product image
+    if (productFormImage) {
+        productFormImage.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            let formData = new FormData(e.target);
+
+            let res = await fetch('/product/image', {
+                method: 'POST',
+                body: formData
+            })
+
+            let result = await res.json();
+
+            if (res.ok) {
+
+                let src = result.url.replace('public', '');
+
+                alertMassange('.form-allert', result.massage, '#3C9C5A', result.url);
+                document.querySelector('.img-wrapper img').src = src;
+                document.querySelector('.img-wrapper input[name="img_src"]').setAttribute('value', src);
+                setTimeout(() => { toggleAddImgWrapper() }, 1000);
+            } else {
+
+                alertMassange('.form-allert', result.massage, '#E14C42');
+            }
+        })
+    }
+
+    //Add all product data in database =======
     if (productForm) {    
         productForm.addEventListener('submit', async (e) => {
             e.preventDefault();
 
-            const serializeForm = function (form) {
-                var obj = {};
-                var formData = new FormData(form);
-                for (var key of formData.keys()) {
-                    obj[key] = formData.get(key);
+            //concatenation of a name with a description
+            const addAttribute = (name, desc) => {
+                let attribute = [];
+
+                for (let i = 0; i < name.length; i++){
+                    attribute[i] = ({ [name[i]] : desc[i]})
                 }
+                return attribute;
+            }
+
+            const serializeForm = function (form) {
+
+                let obj = {};
+                let attrName = [];
+                let attrDesc = [];
+                const formData = new FormData(form);
+
+                for (let key of formData.keys()) {
+                    if (key.indexOf('attrname') != -1) {
+                        attrName.push(formData.get(key));
+                    } else if (key.indexOf('textareaname') != -1){
+                        attrDesc.push(formData.get(key));
+                    } else {
+                        obj[key] = formData.get(key);
+                    }
+                }
+
+                obj.attribute = addAttribute(attrName, attrDesc);
                 return obj;
             };
 
@@ -130,19 +217,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 body: JSON.stringify(serializeForm(e.target))
             });
 
-            const result = await response.json();
+            let result = await response.json();
 
             if (response.ok) {
-                document.querySelector('.form-allert').textContent = result.massage;
-                document.querySelector('.form-allert').style.color = '#3C9C5A';
+                alertMassange('.form-allert', result.massage, '#3C9C5A');
 
                 setTimeout(() => {
                     window.location.replace('/product?route=catalog/product');
                 }, 2000)
             } else {
-                document.querySelector('.form-allert').textContent = result.massage;
-                document.querySelector('.form-allert').style.color = '#E14C42';
+                alertMassange('.form-allert', result.massage, '#E14C42');
             }
         })
     }
+
 })

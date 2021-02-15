@@ -8,7 +8,6 @@ const Session = require('express-session');
 const FileStore = require('session-file-store')(Session);
 
 const keys = require('./config/keys');
-
 const Routes = require('./routes/route'); //роутинг
 const authRoutes = require('./routes/auth'); //роутер логина
 const dashboardRoutes = require('./routes/dashboard'); //роутер панели администратора
@@ -61,6 +60,7 @@ app.use(Session({
     resave: false,
     saveUninitialized: false
 }));
+
 app.use(cookieParser());
 require('./midlleware/passport');
 

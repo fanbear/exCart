@@ -1,5 +1,5 @@
 const menuItem = document.querySelector('.admin-panel__sitebar');
-const addProductButton = document.querySelector('.product-add__btn');
+const date = document.querySelector('.content-wrapper__date');
 
 
 //menu ==========================
@@ -26,6 +26,7 @@ const menuParams = (e) => {
     }
     
 }
+
 
 menuItem.addEventListener('click', dropdown);
 window.addEventListener('load', menuParams);

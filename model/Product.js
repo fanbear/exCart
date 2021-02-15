@@ -8,7 +8,7 @@ const product = new Schema ({
     metaDesc: { type: String },
     desc: { type: String },
     manufacturer: {type: String},
-    //image: { type: String },
+    image: { type: String },
     count: { type: Number },
     price: { type: Number },
     priceIn: { type: Number },
@@ -17,12 +17,7 @@ const product = new Schema ({
     code: {type: String },
     model: {type: String },
     category: { type: String },
-    attribute: [
-        {
-            attrId: { type: String },
-            attrDesc: { type: String }
-        }
-    ]
+    attribute: {type: Array}
     //showInCategory: [{categoryIn: { type: String }}]
 })
 
